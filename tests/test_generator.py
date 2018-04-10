@@ -1,9 +1,9 @@
-import sys, os
-sys.path.append(os.path.realpath(os.path.dirname(__file__)+"/.."))
+import sys
+sys.path.append('..')
 
 import unittest
 
-from buzz import generator
+from buzz.generator import generate_buzz
 
 def test_sample_single_word():
     l = ('foo', 'bar', 'foobar')
