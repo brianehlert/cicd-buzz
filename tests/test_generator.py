@@ -3,7 +3,7 @@ sys.path.append('..')
 
 import unittest
 
-from buzz.generator import generate_buzz
+from buzz import generator
 
 def test_sample_single_word():
     l = ('foo', 'bar', 'foobar')
