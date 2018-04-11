@@ -10,11 +10,13 @@ script:
 services:
   - docker
 
-before_install:
-  - docker build -t cicd-buzz .
-  
-deploy:
-   provider: script
-   script: bash docker_push.sh
-   on:
-     branch: master
+after_success:
+ — docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+ — export REPO=$DOCKER_USER/k-auth
+ — export TAG=`if [ “$TRAVIS_BRANCH” == “master” ]; then echo “latest”; else echo $TRAVIS_BRANCH ; fi`
+ — echo $REPO:$TAG:$COMMIT
+ — docker build -f Dockerfile -t $REPO:$COMMIT .
+ — docker tag $REPO:$COMMIT $REPO:$TAG
+ — docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+ — docker push $REPO
+ 
