@@ -12,7 +12,6 @@ services:
 
 before_install:
   - docker build -t cicd-buzz .
-  - docker run -p 5000:5000 --rm -it cicd-buzz
   
 deploy:
    provider: script
