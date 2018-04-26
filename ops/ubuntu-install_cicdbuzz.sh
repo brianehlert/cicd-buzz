@@ -9,6 +9,6 @@ sudo cp /opt/cicd-buzz/ops/cicdbuzz.conf /etc/supervisor/conf.d/
 sudo pip3 install -r /opt/cicd-buzz/requirements.txt
 
 sudo supervisorctl update
-sudo supervisorctl restart flashpolicyd
+sudo supervisorctl restart cicdbuzz
 
 # python3 cicd-buzz/app.py
