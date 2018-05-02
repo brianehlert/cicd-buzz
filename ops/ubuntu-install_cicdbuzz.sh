@@ -1,5 +1,4 @@
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get update && apt-get -y upgrade
 sudo apt-get install python-pip python3-pip
 sudo apt-get install git
 sudo apt-get install supervisor

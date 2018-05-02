@@ -92,6 +92,8 @@ function main() {
 
 main
 
+sudo apt-get update && apt-get -y upgrade
+sudo apt-get -y install python-pip python3-pip git supervisor
 sudo git clone https://github.com/brianehlert/cicd-buzz.git /opt/cicd-buzz
 sudo chmod +x /opt/cicd-buzz
 sudo cp /opt/cicd-buzz/ops/cicdbuzz.conf /etc/supervisor/conf.d/
