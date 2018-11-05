@@ -1,7 +1,6 @@
-FROM alpine:3.5
-RUN apk add --update python py-pip
-COPY requirements.txt /src/requirements.txt
-RUN pip install -r /src/requirements.txt
-COPY app.py /src
-COPY buzz /src/buzz
-CMD python /src/app.py
+FROM alpine:latest
+RUN apk add --update python3 py3-pip
+COPY cicd-buzz /opt/cicd-buzz
+RUN chmod +x /opt/cicd-buzz/
+RUN pip3 install -r /opt/cicd-buzz/requirements.txt
+CMD python3 /opt/cicd-buzz/app.py
